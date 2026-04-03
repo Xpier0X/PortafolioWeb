@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+/* Scroll suave para anchors */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Fondo principal con gradiente radial */
+.bg-gradient-main {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, #8B5CF640, transparent 70%), #000000;
+}
+
+/* Contenedor principal con separación pronunciada lateral */
+.portfolio-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .portfolio-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}

@@ -1,0 +1,23 @@
+---
+import "../styles/global.css";
+import Navbar from "../components/Navbar.astro";
+
+const { title } = Astro.props;
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{title}</title>
+  </head>
+
+  <body class="min-h-screen w-full relative">
+    <div class="absolute inset-0 z-0 bg-gradient-main"></div>
+    <div class="relative z-10 portfolio-container">
+      <Navbar />
+      <main class="py-10">
+        <slot />
+      </main>
+    </div>
+  </body>
+</html>
