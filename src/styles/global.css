@@ -1,31 +1,23 @@
 @import "tailwindcss";
 
-/* Scroll suave para anchors */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Fondo principal con gradiente radial */
 .bg-gradient-main {
   position: absolute;
   inset: 0;
   z-index: 0;
-  background: radial-gradient(ellipse 80% 60% at 50% 0%, #8B5CF640, transparent 70%), #000000;
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, #8B5CF640, transparent 90%), #000000;
 }
 
-/* Contenedor principal con separación pronunciada lateral */
 .portfolio-container {
   max-width: 1400px;
   margin: 0 auto;
-  padding-left: 4rem;
-  padding-right: 4rem;
+  padding-left: 12rem;
+  padding-right: 12rem;
 }
 
-/* Responsive */
 @media (max-width: 1024px) {
   .portfolio-container {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
   }
 }
 
@@ -34,4 +26,10 @@ html {
     padding-left: 1rem;
     padding-right: 1rem;
   }
+}
+
+pre {
+  margin: 0;
+  padding: 1rem;
+  background: transparent !important;
 }

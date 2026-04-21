@@ -1,0 +1,32 @@
+---
+interface Props {
+  title: string;
+  company: string;
+  startDate: string;
+  endDate: string;
+  description: string;
+}
+const { title, company, startDate, endDate, description } = Astro.props;
+---
+
+<li>
+  <div class="grid grid-cols-2">
+    <div class="flex flex-col text-left gap-y-1">
+      <h3 class="text-xl font-bold text-violet-500">
+        {title}
+      </h3>
+      <p class="text-lg
+      text-semibold">
+        {company}
+      </p>
+      <span class="text-sm text-gray-200">
+        {startDate} — {endDate}
+      </span>
+    </div>
+    <ul class="text-sm leading-relaxed text-gray-200">
+      <span>
+        {description}
+      </span>
+    </ul>
+  </div>
+</li>
