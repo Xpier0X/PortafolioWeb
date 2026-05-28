@@ -1,0 +1,23 @@
+---
+import { SITE } from "../../data/site"
+const [first, second, ...rest] = SITE.name.split(" ")
+const lastName = rest.join(" ")
+---
+
+<header class="hero mb-20 pb-12 border-b-2 border-border relative max-[480px]:mb-15">
+  <span class="tag absolute right-0 top-1.5 [writing-mode:vertical-rl] font-body text-[10px] leading-none uppercase tracking-[0.2em] text-accent max-lg:hidden">Disponible</span>
+  <h1 class="font-display font-extrabold text-fg max-w-[14ch] text-wrap:pretty [font-size:clamp(56px,12vw,130px)] leading-[0.88] tracking-[-0.04em]">
+    <span class="block">{first} {second}</span>
+    <span class="block">{lastName}</span>
+  </h1>
+  <div class="meta flex flex-wrap gap-[12px_28px] mt-7 font-body text-[12px] leading-[1.4] text-muted uppercase tracking-[0.04em]">
+    <span class="text-fg font-bold">{SITE.role}</span>
+    <span class="text-muted font-normal">·</span>
+    <span class="text-fg font-bold">9.° ciclo</span>
+    <span class="text-muted font-normal">·</span>
+    <span class="text-muted font-normal">Ing. Sistemas</span>
+  </div>
+  <div class="ascii-line mt-8 font-body text-[10px] leading-[1.6] text-muted whitespace-pre max-[860px]:text-[9px]">
+    <span class="hl text-accent">//</span> {SITE.tagline} <span class="hl text-accent">//</span> localidad {SITE.location}
+  </div>
+</header>

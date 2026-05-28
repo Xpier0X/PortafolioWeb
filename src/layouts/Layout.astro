@@ -1,34 +1,112 @@
 ---
-import "../styles/global.css";
-import Navbar from "../components/Navbar.astro";
-import Contact from "../sections/Contact.astro";
-import Experience from "../sections/Experience.astro";
-import Projects from "../sections/Projects.astro";
-import Skills from "../sections/Skills.astro";
-const { title } = Astro.props;
+import "../styles/global.css"
+
+const { title } = Astro.props
 ---
 
 <html lang="es">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
   </head>
+  <body>
+    <slot />
 
-  <body class="min-h-screen w-full relative">
-    <div class="inset-0 z-0 bg-gradient-main"></div>
-    <div class="relative z-10 portfolio-container">
-      <Navbar />
-      <main class="space-y-32 pt-20">
-        <section>
-          <slot />
-        </section>
-        <section>
-          <Experience />
-          <!-- <Projects />  
-          <Skills />
-          <Contact /> -->
-        </section>
-      </main>
-    </div>
+    <script>
+      (function () {
+        var html = document.documentElement;
+        var pref = localStorage.getItem("theme");
+
+        function setTheme(dark) {
+          if (dark) {
+            html.classList.add("dark");
+          } else {
+            html.classList.remove("dark");
+          }
+          try {
+            localStorage.setItem("theme", dark ? "dark" : "light");
+          } catch (_) {}
+          var tb = document.getElementById("themeBtn");
+          var sl = document.getElementById("stickyModeLabel");
+          if (tb) tb.textContent = dark ? "[Claro]" : "[Oscuro]";
+          if (sl) sl.textContent = dark ? "Claro" : "Oscuro";
+        }
+
+        if (pref === "dark") setTheme(true);
+        else if (pref === "light") setTheme(false);
+        else if (window.matchMedia("(prefers-color-scheme: dark)").matches) setTheme(true);
+
+        var btns = [
+          document.getElementById("themeBtn"),
+          document.getElementById("stickyThemeBtn"),
+        ];
+        btns.forEach(function (btn) {
+          if (!btn) return;
+          btn.addEventListener("click", function () {
+            setTheme(!html.classList.contains("dark"));
+          });
+        });
+
+        function scrollToSection(id) {
+          var target = document.querySelector(id);
+          if (target)
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+
+        document
+          .querySelectorAll('.nav-links a[href^="#"]')
+          .forEach(function (a) {
+            a.addEventListener("click", function (e) {
+              e.preventDefault();
+              scrollToSection(a.getAttribute("href"));
+            });
+          });
+
+        document
+          .querySelectorAll('.sticky-links a[href^="#"]')
+          .forEach(function (a) {
+            a.addEventListener("click", function (e) {
+              e.preventDefault();
+              scrollToSection(a.getAttribute("href"));
+            });
+          });
+
+        var stickyNav = document.getElementById("stickyNav");
+        var heroEl = document.querySelector(".hero");
+        var secEls = document.querySelectorAll(".section[id]");
+        var stickyLinks = document.querySelectorAll(".sticky-links a");
+
+        function updateSticky() {
+          var heroBottom = heroEl.offsetTop + heroEl.offsetHeight - 80;
+          stickyNav.classList.toggle("visible", window.scrollY > heroBottom);
+
+          var current = "";
+          secEls.forEach(function (s) {
+            var rect = s.getBoundingClientRect();
+            if (rect.top < window.innerHeight * 0.4)
+              current = s.getAttribute("id");
+          });
+          stickyLinks.forEach(function (a) {
+            a.classList.toggle(
+              "active",
+              a.getAttribute("href") === "#" + current,
+            );
+          });
+        }
+
+        var ticking = false;
+        window.addEventListener("scroll", function () {
+          if (!ticking) {
+            requestAnimationFrame(function () {
+              updateSticky();
+              ticking = false;
+            });
+            ticking = true;
+          }
+        });
+        updateSticky();
+      })();
+    </script>
   </body>
 </html>

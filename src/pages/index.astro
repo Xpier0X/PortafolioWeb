@@ -1,8 +1,24 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Hero from "../components/Hero.astro";
+import Layout from "../layouts/Layout.astro"
+import StickyNav from "../components/sections/StickyNav.astro"
+import Nav from "../components/sections/Nav.astro"
+import Hero from "../components/sections/Hero.astro"
+import Experience from "../components/sections/Experience.astro"
+import Proyectos from "../components/sections/Proyectos.astro"
+import Perfil from "../components/sections/Perfil.astro"
+import Contacto from "../components/sections/Contacto.astro"
+import Footer from "../components/sections/Footer.astro"
 ---
 
-<Layout title="Portafolio - Piero Leon Yaipen">
-  <Hero />
+<Layout title="Piero Leon — Portafolio">
+  <StickyNav />
+  <div class="mx-auto max-w-[var(--content-max)] px-[var(--space-unit)] max-[480px]:px-4">
+    <Nav />
+    <Hero />
+    <Experience />
+    <Proyectos />
+    <Perfil />
+    <Contacto />
+    <Footer />
+  </div>
 </Layout>
