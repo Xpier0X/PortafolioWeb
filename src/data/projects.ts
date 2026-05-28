@@ -23,8 +23,7 @@ export const projects: Project[] = [
     tags: ["WordPress", "Elementor", "SEO", "2026"],
     links: [{ label: "Visitar sitio", url: "https://eldiariodelvraem.pe" }],
     featured: true,
-    thumbIcon: "📰",
-    thumbLabel: "Portada de noticias",
+    thumbLabel: "En curso",
   },
   {
     title: "Type-CLI",
