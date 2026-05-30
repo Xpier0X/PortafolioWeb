@@ -2,9 +2,10 @@
 import { SITE } from "../../data/site"
 import { skillCategories } from "../../data/skills"
 import { projects } from "../../data/projects"
+import { experiences } from "../../data/experience"
 ---
 
-<section class="section mb-20 pb-15 border-b-2 border-border max-[480px]:mb-15 max-[480px]:pb-10">
+<section id="perfil" class="section mb-20 pb-15 border-b-2 border-border max-[480px]:mb-15 max-[480px]:pb-10">
   <div class="section-head flex justify-between items-baseline mb-10 pb-3 border-b-2 border-border relative">
     <span class="bleed-num max-[860px]:hidden">03</span>
     <h2 class="font-bold font-body text-[11px] leading-none uppercase tracking-[0.18em] text-fg">Perfil</h2>
@@ -15,7 +16,7 @@ import { projects } from "../../data/projects"
     <div class="perfil-top grid grid-cols-2 gap-10 max-[860px]:grid-cols-1 max-[860px]:gap-8">
       <div class="perfil-bio">
         <p class="font-body text-[13px] leading-[1.8] text-fg max-w-[75ch] mb-4 last:mb-0">
-          Estudiante de <span class="text-accent font-bold">Ingeniería de Sistemas en noveno ciclo con experiencia en desarrollo frontend y soporte técnico.</span> Habilidades comprobadas en TypeScript, Tailwind CSS y WordPress para crear interfaces responsivas y optimizar experiencia de usuario. Busco aplicar mis conocimientos en desarrollo full-stack para contribuir a proyectos tecnológicos innovadores.
+          Estudiante de <span class="text-accent font-bold">Ingeniería de Sistemas (9.° ciclo) con experiencia en desarrollo frontend con WordPress, TypeScript y Tailwind CSS.</span> He desarrollado portales de noticias, sitios web corporativos y herramientas CLI, aplicando buenas prácticas de SEO on-page y optimización de rendimiento en carga de sitios web.
            
         </p>
       </div>
@@ -40,7 +41,7 @@ import { projects } from "../../data/projects"
         <div class="font-body text-[9px] leading-none uppercase tracking-[0.15em] text-muted mt-1.5">Ciclo académico</div>
       </div>
       <div class="met flex-1">
-        <div class="font-bold font-display text-[40px] leading-none text-fg">6</div>
+        <div class="font-bold font-display text-[40px] leading-none text-fg">{experiences.length}</div>
         <div class="font-body text-[9px] leading-none uppercase tracking-[0.15em] text-muted mt-1.5">Experiencias laborales</div>
       </div>
       <div class="met flex-1">

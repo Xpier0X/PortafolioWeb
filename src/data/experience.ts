@@ -15,7 +15,7 @@ export const experiences: Experience[] = [
     endDate: "Abr 2026",
     location: "Remoto",
     description:
-      "Diseño y desarrollo del portal de noticias con WordPress y Elementor. Implementé plantillas dinámicas para publicación de artículos. Optimicé la experiencia de lectura reduciendo la tasa de abandono en un 15 %. Apliqué SEO on-page mejorando rankings en Google.",
+      "Diseñé y desarrollé el portal de noticias con WordPress y Elementor, definiendo la arquitectura de categorías, etiquetas y jerarquía de contenido para una navegación editorial clara. Implementé plantillas dinámicas reutilizables para artículos, asegurando consistencia visual en todas las publicaciones. Optimicé la experiencia de lectura ajustando tipografía, espaciado, jerarquía visual y tiempos de carga en dispositivos móviles y de escritorio. Apliqué SEO on-page con estructura de encabezados, metadatos y URLs amigables para mejorar el posicionamiento orgánico.",
   },
   {
     company: "Turquesa Travel",
@@ -24,7 +24,7 @@ export const experiences: Experience[] = [
     endDate: "Oct 2025",
     location: "Remoto",
     description:
-      "Diseño y desarrollo del sitio web corporativo con WordPress y Elementor. Implementé catálogo de servicios (15+) y formularios de contacto (3 tipos). Optimicé rendimiento reduciendo tiempo de carga en un 30 %. Aumenté tráfico orgánico en un 25 % con SEO on-page.",
+      "Diseñé y desarrollé el sitio web corporativo con WordPress y Elementor, creando una interfaz moderna que el cliente podía gestionar de forma autónoma. Implementé catálogo de servicios turísticos, formularios de contacto inteligentes y páginas informativas optimizadas para conversión. Optimicé el rendimiento del sitio mediante compresión de imágenes, minificación de recursos y estrategias de caching. Coordiné directamente con el cliente la definición de estructura, contenidos y diseño del sitio.",
   },
   {
     company: "Claro Advisor IT",
@@ -33,7 +33,7 @@ export const experiences: Experience[] = [
     endDate: "Sep 2025",
     location: "Santa Anita",
     description:
-      "Mantenimiento preventivo y correctivo de equipos de cómputo. Soporte técnico a usuarios con tiempo promedio de resolución de 4 horas. Instalé y configuré software/hardware en 50+ estaciones de trabajo.",
+      "Realicé mantenimiento preventivo y correctivo de equipos informáticos, diagnosticando fallas de hardware y software. Atendí solicitudes de soporte técnico mediante sistema de tickets, priorizando incidencias según criticidad. Instalé y configuré software especializado y periféricos en más de 50 estaciones de trabajo.",
   },
   {
     company: "Universidad Privada del Norte",
@@ -42,6 +42,7 @@ export const experiences: Experience[] = [
     endDate: "Ago 2025",
     location: "Breña",
     description:
-      "Mantenimiento integral en salas de cómputo, laboratorios y aulas (100+ equipos). Documenté procedimientos creando un manual de mantenimiento. Identifiqué 15 oportunidades de optimización.",
+      "Realicé mantenimiento integral en salas de cómputo, laboratorios y aulas de toda la sede. Documenté procedimientos de mantenimiento, creando un manual técnico de referencia para el equipo de soporte. Identifiqué y reporté oportunidades de mejora en el parque tecnológico para prolongar la vida útil de los equipos.",
   },
+
 ]
