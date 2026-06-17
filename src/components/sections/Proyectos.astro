@@ -5,7 +5,7 @@ import { projects } from "../../data/projects"
 <section id="proyectos" class="section mb-20 pb-15 border-b-2 border-border max-[480px]:mb-15 max-[480px]:pb-10">
   <div class="section-head flex justify-between items-baseline mb-10 pb-3 border-b-2 border-border relative">
     <span class="bleed-num max-[860px]:hidden">02</span>
-    <h2 class="font-bold font-body text-[11px] leading-none uppercase tracking-[0.18em] text-fg">Proyectos</h2>
+    <h2 class="font-bold font-body text-[11px] leading-none uppercase tracking-[0.18em] text-fg dark:text-accent">Proyectos</h2>
     <span class="num font-body text-[10px] leading-none text-muted tracking-widest">{String(projects.length).padStart(2, "0")} seleccionados</span>
   </div>
 
@@ -14,53 +14,32 @@ import { projects } from "../../data/projects"
       <div class={"bg-bg relative" + (project.featured
         ? " col-span-full grid grid-cols-2 gap-8 p-10 px-8 max-[860px]:grid-cols-1 max-[860px]:p-8 max-[860px]:px-6 max-[480px]:p-6 max-[480px]:px-4 max-[480px]:gap-4"
         : " p-9 px-7 flex flex-col max-[860px]:p-8 max-[860px]:px-6 max-[480px]:p-6 max-[480px]:px-4")}>
-        {project.featured ? (
-          <>
-            <div>
-              <div class="label font-body text-[10px] leading-none uppercase tracking-[0.18em] text-accent mb-4">— {project.label}</div>
-              <h3 class="font-bold font-display text-[22px] leading-[1.1] text-fg mb-3">{project.title}</h3>
-              <p class="font-body text-[12px] leading-normal text-muted mb-5">{project.description}</p>
-              <div class="tags flex flex-wrap gap-2 mt-auto">
-                {project.tags.map((tag) => (
-                  <span class="font-body text-[10px] leading-none uppercase tracking-widtest text-fg border-[1.5px] border-border px-2.5 py-1">{tag}</span>
-                ))}
-              </div>
-              <div class="work-actions flex gap-0 mt-8">
-                {project.links.map((link) => (
-                  <a href={link.url} target="_blank" rel="noopener"
-                    class="font-body text-[10px] leading-none uppercase tracking-[0.12em] text-accent no-underline py-1.5 inline-flex items-center gap-2 transition-colors duration-150 hover:text-fg">
-                    <span class="arrow text-[14px] leading-none">↗</span> {link.label}
-                  </a>
-                ))}
-              </div>
+        {project.featured && (
+          <div class="bg-border aspect-16/10 grid place-items-center font-body text-[10px] leading-none uppercase tracking-[0.12em] text-muted max-[860px]:order-last">
+            <div class="flex flex-col items-center gap-2">
+              <span class="text-[32px] tracking-normal">{project.thumbIcon}</span>
+              <span>{project.thumbLabel}</span>
             </div>
-            <div class="bg-border aspect-16/10 grid place-items-center font-body text-[10px] leading-none uppercase tracking-[0.12em] text-muted">
-              <div class="flex flex-col items-center gap-2">
-                <span class="text-[32px] tracking-normal">{project.thumbIcon}</span>
-                <span>{project.thumbLabel}</span>
-              </div>
-            </div>
-          </>
-        ) : (
-          <>
-            <div class="label font-body text-[10px] leading-none uppercase tracking-[0.18em] text-accent mb-4">— {project.label}</div>
-            <h3 class="font-bold font-display text-[22px] leading-[1.1] text-fg mb-3">{project.title}</h3>
-            <p class="font-body text-[12px] leading-normal text-muted mb-5">{project.description}</p>
-            <div class="tags flex flex-wrap gap-2 mt-auto">
-              {project.tags.map((tag) => (
-                <span class="font-body text-[10px] leading-none uppercase tracking-widest text-fg border-[1.5px] border-border px-2.5 py-1">{tag}</span>
-              ))}
-            </div>
-            <div class="work-actions flex gap-0 mt-8">
-              {project.links.map((link) => (
-                <a href={link.url} target="_blank" rel="noopener"
-                  class="font-body text-[10px] leading-none uppercase tracking-[0.12em] text-accent no-underline py-1.5 inline-flex items-center gap-2 transition-colors duration-150 hover:text-fg">
-                  <span class="arrow text-[14px] leading-none">↗</span> {link.label}
-                </a>
-              ))}
-            </div>
-          </>
+          </div>
         )}
+        <div>
+          <div class="label font-body text-[10px] leading-none uppercase tracking-[0.18em] text-accent mb-4">— {project.label}</div>
+          <h3 class="font-bold font-display text-[22px] leading-[1.1] text-fg mb-3">{project.title}</h3>
+          <p class="font-body text-[12px] leading-normal text-muted mb-5">{project.description}</p>
+          <div class="tags flex flex-wrap gap-2 mt-auto">
+            {project.tags.map((tag) => (
+              <span class="font-body text-[10px] leading-none uppercase tracking-widest text-fg border-[1.5px] border-border px-2.5 py-1">{tag}</span>
+            ))}
+          </div>
+          <div class="work-actions flex gap-0 mt-8">
+            {project.links.map((link) => (
+              <a href={link.url} target="_blank" rel="noopener noreferrer"
+                class="font-body text-[10px] leading-none uppercase tracking-[0.12em] text-accent no-underline py-1.5 inline-flex items-center gap-2 transition-colors duration-150 hover:text-fg">
+                <span class="arrow text-[14px] leading-none">↗</span> {link.label}
+              </a>
+            ))}
+          </div>
+        </div>
       </div>
     ))}
   </div>

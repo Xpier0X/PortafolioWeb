@@ -37,13 +37,8 @@
   --accent:  oklch(62% 0.28 25);
 }
 
+/* Dark mode overrides using Tailwind dark: variant via components */
 .dark .tl-item::before { background: var(--bg); }
-.dark .ps-group h4,
-.dark .section-head h2 { color: var(--accent); }
-.dark .contact .channels a:hover {
-  background: var(--accent);
-  color: var(--bg);
-}
 
 @layer base {
   html {

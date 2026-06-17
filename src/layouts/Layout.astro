@@ -3,7 +3,17 @@ import "../styles/global.css"
 import Analytics from "@vercel/analytics/astro"
 import SpeedInsights from "@vercel/speed-insights/astro"
 
-const { title } = Astro.props
+interface Props {
+  title: string
+  description?: string
+}
+
+const {
+  title,
+  description = "Portafolio de Piero Leon — Desarrollador Frontend especializado en WordPress, TypeScript y Tailwind CSS. Estudiante de Ingeniería de Sistemas en Lima, Perú.",
+} = Astro.props
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 ---
 
 <html lang="es">
@@ -11,8 +21,42 @@ const { title } = Astro.props
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:locale" content="es_PE" />
+    <meta property="og:site_name" content="Piero Leon — Portafolio" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- SEO -->
+    <meta name="author" content="Piero Daniel Leon Yaipen" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#f0e8de" />
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="alternate icon" href="/favicon.ico" />
+
+    <!-- Preload theme to avoid FOUC -->
+    <script is:inline>
+      (function () {
+        try {
+          var saved = localStorage.getItem("theme");
+          var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+          if (saved === "dark" || (!saved && prefersDark)) {
+            document.documentElement.classList.add("dark");
+          }
+        } catch (_) {}
+      })();
+    </script>
   </head>
   <body>
     <slot />
@@ -24,7 +68,7 @@ const { title } = Astro.props
       (function () {
         var html = document.documentElement;
 
-        function setTheme(dark) {
+        function setTheme(dark: boolean) {
           if (dark) {
             html.classList.add("dark");
           } else {
@@ -39,7 +83,10 @@ const { title } = Astro.props
           if (sl) sl.textContent = dark ? "Claro" : "Oscuro";
         }
 
-        setTheme(false);
+        // Initialize from saved preference or OS preference
+        var saved = localStorage.getItem("theme");
+        var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        setTheme(saved ? saved === "dark" : prefersDark);
 
         var btns = [
           document.getElementById("themeBtn"),
@@ -52,7 +99,8 @@ const { title } = Astro.props
           });
         });
 
-        function scrollToSection(id) {
+        function scrollToSection(id: string | null) {
+          if (!id) return;
           var target = document.querySelector(id);
           if (target)
             target.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -81,7 +129,10 @@ const { title } = Astro.props
         var secEls = document.querySelectorAll(".section[id]");
         var stickyLinks = document.querySelectorAll(".sticky-links a");
 
+        if (!stickyNav || !heroEl) return;
+
         function updateSticky() {
+          if (!heroEl || !stickyNav) return;
           var heroBottom = heroEl.offsetTop + heroEl.offsetHeight - 80;
           stickyNav.classList.toggle("visible", window.scrollY > heroBottom);
 
@@ -89,7 +140,7 @@ const { title } = Astro.props
           secEls.forEach(function (s) {
             var rect = s.getBoundingClientRect();
             if (rect.top < window.innerHeight * 0.4)
-              current = s.getAttribute("id");
+              current = s.getAttribute("id") ?? "";
           });
           stickyLinks.forEach(function (a) {
             a.classList.toggle(

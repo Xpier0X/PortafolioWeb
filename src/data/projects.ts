@@ -23,6 +23,7 @@ export const projects: Project[] = [
     tags: ["WordPress", "Elementor", "SEO", "2026"],
     links: [{ label: "Visitar sitio", url: "https://Delvraem.pe" }],
     featured: true,
+    thumbIcon: "📰",
     thumbLabel: "En curso",
   },
   {
@@ -39,7 +40,7 @@ export const projects: Project[] = [
     description:
       "Plataforma web de consulta académica universitaria con IA. Prototipo en Figma, desarrollo en Tailwind CSS y TypeScript. Integración de chatbot con Gemini API para respuestas académicas precisas.",
     tags: ["Tailwind CSS", "Gemini API", "Figma", "2024"],
-    links: [{ label: "Código", url: "https://https://github.com/Apo-Theddy/tria" }],
+    links: [{ label: "Código", url: "https://github.com/Apo-Theddy/tria" }],
   },
 
 ]

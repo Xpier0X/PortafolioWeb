@@ -6,7 +6,7 @@ const lastName = rest.join(" ")
 
 <header class="hero mb-20 pb-12 border-b-2 border-border relative max-[480px]:mb-15">
   <span class="tag absolute right-0 top-1.5 [writing-mode:vertical-rl] font-body text-[10px] leading-none uppercase tracking-[0.2em] text-accent max-lg:hidden">Disponible</span>
-  <h1 class="font-display font-extrabold text-fg max-w-[14ch] text-wrap:pretty text-[clamp(56px,12vw,130px)] leading-[0.88] tracking-[-0.04em]">
+  <h1 class="font-display font-extrabold text-fg max-w-[14ch] text-pretty text-[clamp(56px,12vw,130px)] leading-[0.88] tracking-[-0.04em]">
     <span class="block">{first} {second}</span>
     <span class="block">{lastName}</span>
   </h1>
@@ -21,34 +21,13 @@ const lastName = rest.join(" ")
     <span class="hl text-accent">//</span> {SITE.tagline} <span class="hl text-accent">//</span> localidad {SITE.location}
   </div>
   <div class="mt-8 flex gap-4 max-[480px]:flex-col max-[480px]:gap-3">
-    <a href={SITE.whatsapp} target="_blank" rel="noopener"
+    <a href={SITE.whatsapp} target="_blank" rel="noopener noreferrer"
       class="inline-flex items-center gap-2 bg-none border-[1.5px] border-accent text-accent dark:bg-accent dark:border-accent dark:text-bg font-body text-[10px] leading-none uppercase tracking-[0.12em] px-4 py-1.75 no-underline transition-colors duration-150 hover:bg-fg hover:border-fg hover:text-bg">
       <span class="text-[12px] leading-none">↗</span> Contáctame
     </a>
-    <button data-download-cv
-      class="inline-flex items-center gap-2 bg-none border-[1.5px] border-border text-fg font-body text-[10px] leading-none uppercase tracking-[0.12em] px-4 py-1.75 no-underline transition-colors duration-150 hover:bg-fg hover:text-bg cursor-pointer">
+    <a href={SITE.cvUrl} download="Leon_Yaipen_Piero_Daniel_CV.pdf" target="_blank" rel="noopener noreferrer"
+      class="inline-flex items-center gap-2 bg-none border-[1.5px] border-border text-fg font-body text-[10px] leading-none uppercase tracking-[0.12em] px-4 py-1.75 no-underline transition-colors duration-150 hover:bg-fg hover:text-bg">
       <span class="text-[12px] leading-none">↓</span> Descargar CV
-    </button>
+    </a>
   </div>
 </header>
-
-<script>
-  const cvUrl = "https://raw.githubusercontent.com/Xpier0X/Curriculum-Vitae/main/rendercv_output/Leon_Yaipen_Piero_Daniel_CV.pdf"
-  document.querySelector("[data-download-cv]")?.addEventListener("click", async (e) => {
-    const btn = e.currentTarget
-    try {
-      btn.textContent = "Descargando..."
-      const res = await fetch(cvUrl)
-      const blob = await res.blob()
-      const url = URL.createObjectURL(blob)
-      const a = document.createElement("a")
-      a.href = url
-      a.download = "Leon_Yaipen_Piero_Daniel_CV.pdf"
-      a.click()
-      URL.revokeObjectURL(url)
-      btn.innerHTML = '<span class="text-[12px] leading-none">↓</span> Descargar CV'
-    } catch {
-      window.open(cvUrl, "_blank")
-    }
-  })
-</script>
