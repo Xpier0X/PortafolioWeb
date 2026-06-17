@@ -9,6 +9,15 @@ export interface Experience {
 
 export const experiences: Experience[] = [
   {
+    company: "GLOBTECx",
+    role: "Frontend Developer · Remoto",
+    startDate: "Abr 2026",
+    endDate: "May 2026",
+    location: "Remoto",
+    description:
+      "Refactorización de la arquitectura frontend de la plataforma web, enfocada en escalabilidad, mantenibilidad y reutilización de componentes. Reestructuré la arquitectura del frontend y la organización de carpetas, estableciendo una base escalable. Identifiqué y corregí errores funcionales y de interfaz. Detecté componentes duplicados y los refactoricé en componentes reutilizables, reduciendo la redundancia. Definí estándares de estructura y convenciones de código para el equipo.",
+  },
+  {
     company: "El Diario del VRAEM",
     role: "Frontend Developer (WordPress) · Remoto",
     startDate: "Feb 2026",
