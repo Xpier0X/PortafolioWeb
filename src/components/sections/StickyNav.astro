@@ -2,17 +2,49 @@
 import { SITE } from "../../data/site"
 ---
 
-<div class="sticky-nav" id="stickyNav">
-  <a href="/" class="sticky-logo font-bold font-body text-[10px] leading-none tracking-[0.18em] uppercase text-muted no-underline px-4 border-r-[1.5px] border-border transition-colors duration-200">
+<nav class="sticky-nav" id="stickyNav" aria-label="Navegación rápida">
+  <a
+    href="/"
+    class="sticky-logo font-bold font-body text-[10px] leading-none tracking-[0.18em] uppercase text-muted no-underline px-4 border-r-[1.5px] border-border transition-colors duration-200"
+  >
     {SITE.initials}<span class="text-accent">.</span>
   </a>
   <div class="sticky-links flex items-center gap-0 px-2">
-    <a href="#experiencia" class="font-body text-[10px] leading-none uppercase tracking-[0.15em] text-muted no-underline px-3 h-10 flex items-center relative transition-colors duration-200 hover:text-fg">Experiencia</a>
-    <a href="#proyectos" class="font-body text-[10px] leading-none uppercase tracking-[0.15em] text-muted no-underline px-3 h-10 flex items-center relative transition-colors duration-200 hover:text-fg">Proyectos</a>
-    <a href="#perfil" class="font-body text-[10px] leading-none uppercase tracking-[0.15em] text-muted no-underline px-3 h-10 flex items-center relative transition-colors duration-200 hover:text-fg">Perfil</a>
-    <a href="#contacto" class="font-body text-[10px] leading-none uppercase tracking-[0.15em] text-muted no-underline px-3 h-10 flex items-center relative transition-colors duration-200 hover:text-fg">Contacto</a>
+    <a
+      data-scroll-link
+      href="#experiencia"
+      class="font-body text-[10px] leading-none uppercase tracking-[0.15em] text-muted no-underline px-3 h-10 flex items-center relative transition-colors duration-200 hover:text-fg"
+      >Experiencia</a
+    >
+    <a
+      data-scroll-link
+      href="#proyectos"
+      class="font-body text-[10px] leading-none uppercase tracking-[0.15em] text-muted no-underline px-3 h-10 flex items-center relative transition-colors duration-200 hover:text-fg"
+      >Proyectos</a
+    >
+    <a
+      data-scroll-link
+      href="#perfil"
+      class="font-body text-[10px] leading-none uppercase tracking-[0.15em] text-muted no-underline px-3 h-10 flex items-center relative transition-colors duration-200 hover:text-fg"
+      >Perfil</a
+    >
+    <a
+      data-scroll-link
+      href="#contacto"
+      class="font-body text-[10px] leading-none uppercase tracking-[0.15em] text-muted no-underline px-3 h-10 flex items-center relative transition-colors duration-200 hover:text-fg"
+      >Contacto</a
+    >
   </div>
-  <button class="sticky-toggle bg-transparent border-0 text-muted font-body text-[10px] leading-none uppercase tracking-[0.12em] cursor-pointer px-3.5 h-10 flex items-center gap-1.5 transition-colors duration-200 border-l-[1.5px] border-border hover:text-fg" id="stickyThemeBtn" aria-label="Cambiar tema">
-    <span class="sticky-mode-label font-body text-[9px] leading-none uppercase tracking-[0.15em] text-accent transition-colors duration-200 min-w-9.5 text-center" id="stickyModeLabel">Oscuro</span>
+  <button
+    type="button"
+    class="sticky-toggle bg-transparent border-0 text-muted font-body text-[10px] leading-none uppercase tracking-[0.12em] cursor-pointer px-3.5 h-10 flex items-center gap-1.5 transition-colors duration-200 border-l-[1.5px] border-border hover:text-fg"
+    data-theme-toggle
+    aria-label="Cambiar tema"
+    aria-pressed="false"
+  >
+    <span
+      class="sticky-mode-label font-body text-[9px] leading-none uppercase tracking-[0.15em] text-accent transition-colors duration-200 min-w-9.5 text-center"
+      id="stickyModeLabel">Oscuro</span
+    >
   </button>
-</div>
+</nav>

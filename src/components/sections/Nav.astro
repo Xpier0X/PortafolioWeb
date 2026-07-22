@@ -2,15 +2,47 @@
 import { SITE } from "../../data/site"
 ---
 
-<nav class="flex flex-wrap items-center justify-between py-5 border-b-2 border-border mb-18 max-[480px]:py-3 max-[480px]:mb-10">
-  <a href="/" class="font-bold font-body text-[11px] leading-none tracking-[0.15em] uppercase text-fg no-underline">
+<nav
+  class="site-nav flex flex-wrap items-center justify-between py-5 border-b-2 border-border mb-18 max-[480px]:py-3 max-[480px]:mb-10"
+  aria-label="Navegación principal"
+>
+  <a
+    href="/"
+    class="font-bold font-body text-[11px] leading-none tracking-[0.15em] uppercase text-fg no-underline"
+  >
     {SITE.initials}<span class="text-accent">.</span>
   </a>
   <div class="nav-links flex flex-wrap gap-[4px_20px] max-[480px]:gap-[4px_10px]">
-    <a href="#experiencia" class="font-body text-[10px] leading-none uppercase tracking-[0.12em] text-muted no-underline transition-colors duration-150 hover:text-fg">Experiencia</a>
-    <a href="#proyectos" class="font-body text-[11px] leading-none uppercase tracking-[0.12em] text-muted no-underline transition-colors duration-150 hover:text-fg">Proyectos</a>
-    <a href="#perfil" class="font-body text-[11px] leading-none uppercase tracking-[0.12em] text-muted no-underline transition-colors duration-150 hover:text-fg">Perfil</a>
-    <a href="#contacto" class="font-body text-[11px] leading-none uppercase tracking-[0.12em] text-muted no-underline transition-colors duration-150 hover:text-fg">Contacto</a>
+    <a
+      data-scroll-link
+      href="#experiencia"
+      class="font-body text-[10px] leading-none uppercase tracking-[0.12em] text-muted no-underline transition-colors duration-150 hover:text-fg"
+      >Experiencia</a
+    >
+    <a
+      data-scroll-link
+      href="#proyectos"
+      class="font-body text-[11px] leading-none uppercase tracking-[0.12em] text-muted no-underline transition-colors duration-150 hover:text-fg"
+      >Proyectos</a
+    >
+    <a
+      data-scroll-link
+      href="#perfil"
+      class="font-body text-[11px] leading-none uppercase tracking-[0.12em] text-muted no-underline transition-colors duration-150 hover:text-fg"
+      >Perfil</a
+    >
+    <a
+      data-scroll-link
+      href="#contacto"
+      class="font-body text-[11px] leading-none uppercase tracking-[0.12em] text-muted no-underline transition-colors duration-150 hover:text-fg"
+      >Contacto</a
+    >
   </div>
-  <button class="bg-none border-[1.5px] border-border text-fg font-body text-[9px] leading-none uppercase tracking-[0.12em] px-3 py-1.5 cursor-pointer transition-colors duration-150 hover:bg-fg hover:text-bg max-[480px]:px-2 max-[480px]:py-1" id="themeBtn" aria-label="Cambiar tema">[Claro]</button>
+  <button
+    type="button"
+    class="theme-toggle bg-none border-[1.5px] border-border text-fg font-body text-[9px] leading-none uppercase tracking-[0.12em] px-3 py-1.5 cursor-pointer transition-colors duration-150 hover:bg-fg hover:text-bg max-[480px]:px-2 max-[480px]:py-1"
+    data-theme-toggle
+    aria-label="Cambiar tema"
+    aria-pressed="false">[Claro]</button
+  >
 </nav>

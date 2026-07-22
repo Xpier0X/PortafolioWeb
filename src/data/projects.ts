@@ -42,5 +42,4 @@ export const projects: Project[] = [
     tags: ["TypeScript", "React (Ink)", "SQLite"],
     links: [{ label: "Código", url: "https://github.com/Xpier0X/type-cli" }],
   },
-
 ]

@@ -31,11 +31,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:locale" content="es_PE" />
     <meta property="og:site_name" content="Piero Leon — Portafolio" />
+    <meta property="og:image" content={new URL("/og-image.svg", Astro.site)} />
+    <meta property="og:image:alt" content="Piero Leon — Desarrollador Frontend" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary" />
+    <meta name="twitter:creator" content="@Xpier0X" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL("/og-image.svg", Astro.site)} />
 
     <!-- SEO -->
     <meta name="author" content="Piero Daniel Leon Yaipen" />
@@ -47,15 +51,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 
     <!-- Preload theme to avoid FOUC -->
     <script is:inline>
-      (function () {
+      ;(function () {
         try {
-          var saved = localStorage.getItem("theme");
-          var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+          var saved = localStorage.getItem("theme")
+          var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches
           if (saved === "dark" || (!saved && prefersDark)) {
-            document.documentElement.classList.add("dark");
+            document.documentElement.classList.add("dark")
           }
         } catch (_) {}
-      })();
+      })()
     </script>
   </head>
   <body>
@@ -65,103 +69,109 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
     <SpeedInsights />
 
     <script>
-      (function () {
-        var html = document.documentElement;
+      ;(function () {
+        var html = document.documentElement
+
+        function readTheme(): boolean | null {
+          try {
+            var saved = localStorage.getItem("theme")
+            if (saved === "dark") return true
+            if (saved === "light") return false
+          } catch (_) {}
+          return null
+        }
 
         function setTheme(dark: boolean) {
           if (dark) {
-            html.classList.add("dark");
+            html.classList.add("dark")
           } else {
-            html.classList.remove("dark");
+            html.classList.remove("dark")
           }
           try {
-            localStorage.setItem("theme", dark ? "dark" : "light");
+            localStorage.setItem("theme", dark ? "dark" : "light")
           } catch (_) {}
-          var tb = document.getElementById("themeBtn");
-          var sl = document.getElementById("stickyModeLabel");
-          if (tb) tb.textContent = dark ? "[Claro]" : "[Oscuro]";
-          if (sl) sl.textContent = dark ? "Claro" : "Oscuro";
+          var sl = document.getElementById("stickyModeLabel")
+          document
+            .querySelectorAll<HTMLButtonElement>("[data-theme-toggle]")
+            .forEach(function (button) {
+              button.textContent = dark ? "[Claro]" : "[Oscuro]"
+              button.setAttribute("aria-pressed", String(dark))
+              button.setAttribute(
+                "aria-label",
+                dark ? "Cambiar a tema claro" : "Cambiar a tema oscuro",
+              )
+            })
+          if (sl) sl.textContent = dark ? "Claro" : "Oscuro"
         }
 
         // Initialize from saved preference or OS preference
-        var saved = localStorage.getItem("theme");
-        var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        setTheme(saved ? saved === "dark" : prefersDark);
+        var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches
+        setTheme(readTheme() ?? prefersDark)
 
-        var btns = [
-          document.getElementById("themeBtn"),
-          document.getElementById("stickyThemeBtn"),
-        ];
-        btns.forEach(function (btn) {
-          if (!btn) return;
-          btn.addEventListener("click", function () {
-            setTheme(!html.classList.contains("dark"));
-          });
-        });
+        document.querySelectorAll("[data-theme-toggle]").forEach(function (button) {
+          button.addEventListener("click", function () {
+            setTheme(!html.classList.contains("dark"))
+          })
+        })
 
         function scrollToSection(id: string | null) {
-          if (!id) return;
-          var target = document.querySelector(id);
-          if (target)
-            target.scrollIntoView({ behavior: "smooth", block: "start" });
+          if (!id) return
+          var target = document.querySelector(id)
+          if (target) {
+            var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+            target.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "start" })
+            history.replaceState(null, "", id)
+          }
         }
 
         document
-          .querySelectorAll('.nav-links a[href^="#"]')
+          .querySelectorAll<HTMLAnchorElement>('[data-scroll-link][href^="#"]')
           .forEach(function (a) {
             a.addEventListener("click", function (e) {
-              e.preventDefault();
-              scrollToSection(a.getAttribute("href"));
-            });
-          });
+              e.preventDefault()
+              scrollToSection(a.getAttribute("href"))
+            })
+          })
 
-        document
-          .querySelectorAll('.sticky-links a[href^="#"]')
-          .forEach(function (a) {
-            a.addEventListener("click", function (e) {
-              e.preventDefault();
-              scrollToSection(a.getAttribute("href"));
-            });
-          });
+        var stickyNav = document.getElementById("stickyNav")
+        var heroEl = document.querySelector<HTMLElement>(".hero")
+        var secEls = document.querySelectorAll(".section[id]")
+        var stickyLinks = document.querySelectorAll(".sticky-links a")
 
-        var stickyNav = document.getElementById("stickyNav");
-        var heroEl = document.querySelector(".hero");
-        var secEls = document.querySelectorAll(".section[id]");
-        var stickyLinks = document.querySelectorAll(".sticky-links a");
-
-        if (!stickyNav || !heroEl) return;
+        if (!stickyNav || !heroEl) return
 
         function updateSticky() {
-          if (!heroEl || !stickyNav) return;
-          var heroBottom = heroEl.offsetTop + heroEl.offsetHeight - 80;
-          stickyNav.classList.toggle("visible", window.scrollY > heroBottom);
+          if (!heroEl || !stickyNav) return
+          var heroBottom = heroEl.offsetTop + heroEl.offsetHeight - 80
+          stickyNav.classList.toggle("visible", window.scrollY > heroBottom)
 
-          var current = "";
+          var current = ""
           secEls.forEach(function (s) {
-            var rect = s.getBoundingClientRect();
-            if (rect.top < window.innerHeight * 0.4)
-              current = s.getAttribute("id") ?? "";
-          });
+            var rect = s.getBoundingClientRect()
+            if (rect.top < window.innerHeight * 0.4) current = s.getAttribute("id") ?? ""
+          })
           stickyLinks.forEach(function (a) {
-            a.classList.toggle(
-              "active",
-              a.getAttribute("href") === "#" + current,
-            );
-          });
+            a.classList.toggle("active", a.getAttribute("href") === "#" + current)
+            if (a.getAttribute("href") === "#" + current) {
+              a.setAttribute("aria-current", "page")
+            } else {
+              a.removeAttribute("aria-current")
+            }
+          })
         }
 
-        var ticking = false;
+        var ticking = false
         window.addEventListener("scroll", function () {
           if (!ticking) {
             requestAnimationFrame(function () {
-              updateSticky();
-              ticking = false;
-            });
-            ticking = true;
+              updateSticky()
+              ticking = false
+            })
+            ticking = true
           }
-        });
-        updateSticky();
-      })();
+        })
+        updateSticky()
+      })()
     </script>
   </body>
 </html>

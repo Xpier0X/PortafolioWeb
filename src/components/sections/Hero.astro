@@ -5,28 +5,48 @@ const lastName = rest.join(" ")
 ---
 
 <header class="hero mb-20 pb-12 border-b-2 border-border relative max-[480px]:mb-15">
-  <span class="tag absolute right-0 top-1.5 [writing-mode:vertical-rl] font-body text-[10px] leading-none uppercase tracking-[0.2em] text-accent max-lg:hidden">Disponible</span>
-  <h1 class="font-display font-extrabold text-fg max-w-[14ch] text-pretty text-[clamp(56px,12vw,130px)] leading-[0.88] tracking-[-0.04em]">
+  <span
+    class="tag absolute right-0 top-1.5 [writing-mode:vertical-rl] font-body text-[10px] leading-none uppercase tracking-[0.2em] text-accent max-lg:hidden"
+    >Disponible</span
+  >
+  <h1
+    class="font-display font-extrabold text-fg max-w-[14ch] text-pretty text-[clamp(56px,12vw,130px)] leading-[0.88] tracking-[-0.04em]"
+  >
     <span class="block">{first} {second}</span>
     <span class="block">{lastName}</span>
   </h1>
-  <div class="meta flex flex-wrap gap-[12px_28px] mt-7 font-body text-[12px] leading-[1.4] text-muted uppercase tracking-[0.04em]">
+  <div
+    class="meta flex flex-wrap gap-[12px_28px] mt-7 font-body text-[12px] leading-[1.4] text-muted uppercase tracking-[0.04em]"
+  >
     <span class="text-fg font-bold">{SITE.role}</span>
     <span class="text-muted font-normal">·</span>
     <span class="text-fg font-bold">9.° ciclo</span>
     <span class="text-muted font-normal">·</span>
     <span class="text-muted font-normal">Ing. Sistemas</span>
   </div>
-  <div class="ascii-line mt-8 font-body text-[10px] leading-[1.6] text-muted whitespace-pre max-[860px]:text-[9px]">
-    <span class="hl text-accent">//</span> {SITE.tagline} <span class="hl text-accent">//</span> localidad {SITE.location}
+  <div
+    class="ascii-line mt-8 font-body text-[10px] leading-[1.6] text-muted whitespace-pre max-[860px]:text-[9px]"
+  >
+    <span class="hl text-accent">//</span>
+    {SITE.tagline}
+    <span class="hl text-accent">//</span> localidad {SITE.location}
   </div>
   <div class="mt-8 flex gap-4 max-[480px]:flex-col max-[480px]:gap-3">
-    <a href={SITE.whatsapp} target="_blank" rel="noopener noreferrer"
-      class="inline-flex items-center gap-2 bg-none border-[1.5px] border-accent text-accent dark:bg-accent dark:border-accent dark:text-bg font-body text-[10px] leading-none uppercase tracking-[0.12em] px-4 py-1.75 no-underline transition-colors duration-150 hover:bg-fg hover:border-fg hover:text-bg">
+    <a
+      href={SITE.whatsapp}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="inline-flex items-center gap-2 bg-none border-[1.5px] border-accent text-accent dark:bg-accent dark:border-accent dark:text-bg font-body text-[10px] leading-none uppercase tracking-[0.12em] px-4 py-1.75 no-underline transition-colors duration-150 hover:bg-fg hover:border-fg hover:text-bg"
+    >
       <span class="text-[12px] leading-none">↗</span> Contáctame
     </a>
-    <a href={SITE.cvUrl} download="Leon_Yaipen_Piero_Daniel_CV.pdf" target="_blank" rel="noopener noreferrer"
-      class="inline-flex items-center gap-2 bg-none border-[1.5px] border-border text-fg font-body text-[10px] leading-none uppercase tracking-[0.12em] px-4 py-1.75 no-underline transition-colors duration-150 hover:bg-fg hover:text-bg">
+    <a
+      href={SITE.cvUrl}
+      download="Leon_Yaipen_Piero_Daniel_CV.pdf"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="inline-flex items-center gap-2 bg-none border-[1.5px] border-border text-fg font-body text-[10px] leading-none uppercase tracking-[0.12em] px-4 py-1.75 no-underline transition-colors duration-150 hover:bg-fg hover:text-bg"
+    >
       <span class="text-[12px] leading-none">↓</span> Descargar CV
     </a>
   </div>

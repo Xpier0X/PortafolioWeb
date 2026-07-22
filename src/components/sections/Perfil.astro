@@ -1,14 +1,22 @@
 ---
-import { SITE } from "../../data/site"
 import { skillCategories } from "../../data/skills"
 import { projects } from "../../data/projects"
 import { experiences } from "../../data/experience"
 ---
 
-<section id="perfil" class="section mb-20 pb-15 border-b-2 border-border max-[480px]:mb-15 max-[480px]:pb-10">
-  <div class="section-head flex justify-between items-baseline mb-10 pb-3 border-b-2 border-border relative">
-    <span class="bleed-num max-[860px]:hidden">03</span>
-    <h2 class="font-bold font-body text-[11px] leading-none uppercase tracking-[0.18em] text-fg dark:text-accent">Perfil</h2>
+<section
+  id="perfil"
+  class="section mb-20 pb-15 border-b-2 border-border max-[480px]:mb-15 max-[480px]:pb-10"
+>
+  <div
+    class="section-head flex justify-between items-baseline mb-10 pb-3 border-b-2 border-border relative"
+  >
+    <span class="bleed-num max-[860px]:hidden" aria-hidden="true">03</span>
+    <h2
+      class="font-bold font-body text-[11px] leading-none uppercase tracking-[0.18em] text-fg dark:text-accent"
+    >
+      Perfil
+    </h2>
     <span class="num font-body text-[10px] leading-none text-muted tracking-widest">Acerca de</span>
   </div>
 
@@ -16,37 +24,62 @@ import { experiences } from "../../data/experience"
     <div class="perfil-top grid grid-cols-2 gap-10 max-[860px]:grid-cols-1 max-[860px]:gap-8">
       <div class="perfil-bio">
         <p class="font-body text-[13px] leading-[1.8] text-fg max-w-[75ch] mb-4 last:mb-0">
-          Estudiante de <span class="text-accent font-bold">Ingeniería de Sistemas (9.° ciclo) con experiencia en desarrollo frontend con WordPress, TypeScript y Tailwind CSS.</span> He desarrollado portales de noticias, sitios web corporativos y herramientas CLI, aplicando buenas prácticas de SEO on-page y optimización de rendimiento en carga de sitios web.
-           
+          Estudiante de <span class="text-accent font-bold"
+            >Ingeniería de Sistemas (9.° ciclo) con experiencia en desarrollo frontend con
+            WordPress, TypeScript y Tailwind CSS.</span
+          > He desarrollado portales de noticias, sitios web corporativos y herramientas CLI, aplicando
+          buenas prácticas de SEO on-page y optimización de rendimiento en carga de sitios web.
         </p>
       </div>
 
       <div class="perfil-skills">
-        {skillCategories.map((cat) => (
-          <div class="ps-group mb-7 last:mb-0">
-            <h4 class="font-bold font-body text-[11px] leading-none uppercase tracking-[0.18em] text-accent mb-3 pb-2 border-b-[1.5px] border-border">{cat.title}</h4>
-            <ul class="list-none flex flex-wrap gap-y-1.5">
-              {cat.items.map((item) => (
-                <li class="font-body text-[11px] leading-none text-fg py-1 w-1/2 before:content-['>_'] before:text-border">{item}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
+        {
+          skillCategories.map((cat) => (
+            <div class="ps-group mb-7 last:mb-0">
+              <h3 class="font-bold font-body text-[11px] leading-none uppercase tracking-[0.18em] text-accent mb-3 pb-2 border-b-[1.5px] border-border">
+                {cat.title}
+              </h3>
+              <ul class="list-none flex flex-wrap gap-y-1.5">
+                {cat.items.map((item) => (
+                  <li class="font-body text-[11px] leading-none text-fg py-1 w-1/2 before:content-['>_'] before:text-border">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
       </div>
     </div>
 
-    <div class="perfil-metrics flex gap-6 pt-5 border-t-2 border-border max-[860px]:flex-col max-[860px]:gap-4">
+    <div
+      class="perfil-metrics flex gap-6 pt-5 border-t-2 border-border max-[860px]:flex-col max-[860px]:gap-4"
+    >
       <div class="met flex-1">
         <div class="font-bold font-display text-[40px] leading-none text-fg">9.°</div>
-        <div class="font-body text-[9px] leading-none uppercase tracking-[0.15em] text-muted mt-1.5">Ciclo académico</div>
+        <div
+          class="font-body text-[9px] leading-none uppercase tracking-[0.15em] text-muted mt-1.5"
+        >
+          Ciclo académico
+        </div>
       </div>
       <div class="met flex-1">
-        <div class="font-bold font-display text-[40px] leading-none text-fg">{experiences.length}</div>
-        <div class="font-body text-[9px] leading-none uppercase tracking-[0.15em] text-muted mt-1.5">Experiencias laborales</div>
+        <div class="font-bold font-display text-[40px] leading-none text-fg">
+          {experiences.length}
+        </div>
+        <div
+          class="font-body text-[9px] leading-none uppercase tracking-[0.15em] text-muted mt-1.5"
+        >
+          Experiencias laborales
+        </div>
       </div>
       <div class="met flex-1">
         <div class="font-bold font-display text-[40px] leading-none text-fg">{projects.length}</div>
-        <div class="font-body text-[9px] leading-none uppercase tracking-[0.15em] text-muted mt-1.5">Proyectos destacados</div>
+        <div
+          class="font-body text-[9px] leading-none uppercase tracking-[0.15em] text-muted mt-1.5"
+        >
+          Proyectos destacados
+        </div>
       </div>
     </div>
   </div>

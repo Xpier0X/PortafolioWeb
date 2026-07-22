@@ -53,5 +53,4 @@ export const experiences: Experience[] = [
     description:
       "Realicé mantenimiento integral en salas de cómputo, laboratorios y aulas de toda la sede. Documenté procedimientos de mantenimiento, creando un manual técnico de referencia para el equipo de soporte. Identifiqué y reporté oportunidades de mejora en el parque tecnológico para prolongar la vida útil de los equipos.",
   },
-
 ]

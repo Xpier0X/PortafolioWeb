@@ -2,21 +2,42 @@
 import { experiences } from "../../data/experience"
 ---
 
-<section id="experiencia" class="section mb-20 pb-[60px] border-b-2 border-border max-[480px]:mb-[60px] max-[480px]:pb-10">
-  <div class="section-head flex justify-between items-baseline mb-10 pb-3 border-b-2 border-border relative">
-    <span class="bleed-num max-[860px]:hidden">01</span>
-    <h2 class="font-bold font-body text-[11px] leading-none uppercase tracking-[0.18em] text-fg dark:text-accent">Experiencia</h2>
-    <span class="num font-body text-[10px] leading-none text-muted tracking-[0.1em]">Trayectoria</span>
+<section
+  id="experiencia"
+  class="section mb-20 pb-[60px] border-b-2 border-border max-[480px]:mb-[60px] max-[480px]:pb-10"
+>
+  <div
+    class="section-head flex justify-between items-baseline mb-10 pb-3 border-b-2 border-border relative"
+  >
+    <span class="bleed-num max-[860px]:hidden" aria-hidden="true">01</span>
+    <h2
+      class="font-bold font-body text-[11px] leading-none uppercase tracking-[0.18em] text-fg dark:text-accent"
+    >
+      Experiencia
+    </h2>
+    <span class="num font-body text-[10px] leading-none text-muted tracking-[0.1em]"
+      >Trayectoria</span
+    >
   </div>
 
-  <div class="relative">
-    {experiences.map((exp, i) => (
-      <div class={"tl-item pl-9 mb-10 relative" + (i === experiences.length - 1 ? " last:mb-0" : "")}>
-        <div class="tl-period font-body text-[10px] leading-none uppercase tracking-[0.15em] text-muted mb-2">{exp.startDate} — {exp.endDate}</div>
-        <h3 class="font-bold font-display text-[18px] leading-[1.2] text-fg mb-1">{exp.company}</h3>
-        <div class="tl-role font-body text-[12px] leading-[1.4] text-muted mb-2">{exp.role}</div>
-        <div class="tl-desc font-body text-[12px] leading-[1.6] text-fg max-w-[70ch]">{exp.description}</div>
-      </div>
-    ))}
-  </div>
+  <ol class="timeline relative list-none m-0 p-0" aria-label="Experiencia profesional">
+    {
+      experiences.map((exp, i) => (
+        <li
+          class={"tl-item pl-9 mb-10 relative" + (i === experiences.length - 1 ? " last:mb-0" : "")}
+        >
+          <div class="tl-period font-body text-[10px] leading-none uppercase tracking-[0.15em] text-muted mb-2">
+            {exp.startDate} — {exp.endDate}
+          </div>
+          <h3 class="font-bold font-display text-[18px] leading-[1.2] text-fg mb-1">
+            {exp.company}
+          </h3>
+          <div class="tl-role font-body text-[12px] leading-[1.4] text-muted mb-2">{exp.role}</div>
+          <div class="tl-desc font-body text-[12px] leading-[1.6] text-fg max-w-[70ch]">
+            {exp.description}
+          </div>
+        </li>
+      ))
+    }
+  </ol>
 </section>
