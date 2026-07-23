@@ -9,6 +9,7 @@ export interface Project {
   tags: string[]
   links: ProjectLink[]
   label: string
+  previewImage?: string
   featured?: boolean
   thumbIcon?: string
   thumbLabel?: string
@@ -22,6 +23,7 @@ export const projects: Project[] = [
       "Portal de noticias desarrollado en WordPress con Elementor. Arquitectura de categorías, etiquetas y jerarquía de contenido para navegación editorial clara. Plantillas dinámicas reutilizables para artículos. SEO on-page con estructura de encabezados, metadatos y URLs amigables.",
     tags: ["WordPress", "Elementor", "SEO"],
     links: [{ label: "Visitar sitio", url: "https://Delvraem.pe" }],
+    previewImage: "/delvraem-preview.png",
     featured: true,
     thumbIcon: "📰",
     thumbLabel: "En curso",
